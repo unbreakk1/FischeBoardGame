@@ -1,29 +1,42 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PlayerCharacterTestMax {
+    @BeforeEach
+    void resetPosition() {
+        PlayerCharacterMax.x = 0;
+        PlayerCharacterMax.y = 0;
 
-    @Test
-    void givenx0_thenReturns0(){
-        int x = 0;
-        int expected = 0;
-        int actual = PlayerCharacterMax.getX(x);
-        Assertions.assertEquals(expected,actual);
     }
 
     @Test
-    void givenCharacterPosY0_thenReturns0(){
-        int y = 0;
-        int expected = 0;
-        int actual = PlayerCharacterMax.getY(y);
-        Assertions.assertEquals(expected,actual);
+    void givenx0_thenReturnsX0(){
+        int expectedX = 0;
+        int actualX = PlayerCharacterMax.getX();
+        Assertions.assertEquals(expectedX,actualX);
     }
 
     @Test
-    void givenPressW_thenPositionY1(){
-        String input = "W";
-        int expected = 1;
-        int actual = PlayerCharacterMax.move(input);
-        Assertions.assertEquals(expected,actual);
+    void givenY0_thenReturnsY0(){
+        int expectedY = 0;
+        int actualY = PlayerCharacterMax.getY();
+        Assertions.assertEquals(expectedY,actualY);
     }
+
+    @Test
+    void givenW_thenPositionY1(){
+        String input = "w";
+        int expectedY = 1;
+        int actualY = PlayerCharacterMax.move(input);
+        Assertions.assertEquals(expectedY,actualY);
+    }
+    @Test
+    void givenPressS_thenPositionYminus1(){
+        String input = "s";
+        int expectedY = -1;
+        int actualY = PlayerCharacterMax.move(input);
+        Assertions.assertEquals(expectedY,actualY);
+    }
+
 }

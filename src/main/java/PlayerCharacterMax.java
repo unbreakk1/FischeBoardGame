@@ -7,18 +7,20 @@ public class PlayerCharacterMax {
 
     }
 
-    public static int getX(int posX) {
-        return 0;
+    public static int getX() {
+        return x;
     }
 
-    public static int getY(int posY) {
-        return 0;
+    public static int getY() {
+        return y;
     }
 
     public static int move(String input) {
-        if ( input.equals("W")){
-            y++;
-            return y;
+        if ( input.equals("w")){
+            return ++y;
+        }
+        if ( input.equals("s")){
+            return --y;
         }
         return 0;
     }
