@@ -37,4 +37,14 @@ public class PlayerCharacterTestChris
 
         Assertions.assertEquals(expectedPos, actualPos);
     }
+
+ //   @Test
+ //   void moveX_ExpectReturnOne()
+ //   {
+ //       String key = "d";
+ //       int playerPosX = 1;
+ //       int expectedPos = 1;
+//
+ //       int actualPos = PlayerCharacter.move(playerPosX, key);
+ //   }
 }
