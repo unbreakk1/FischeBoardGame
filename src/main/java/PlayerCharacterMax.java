@@ -22,6 +22,9 @@ public class PlayerCharacterMax {
         if ( input.equals("s")){
             return --y;
         }
+        if ( input.equals("d")){
+            return ++x;
+        }
         return 0;
     }
 }

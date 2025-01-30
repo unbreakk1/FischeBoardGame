@@ -25,18 +25,27 @@ public class PlayerCharacterTestMax {
     }
 
     @Test
-    void givenW_thenPositionY1(){
+    void givenW_thenY1(){
         String input = "w";
         int expectedY = 1;
         int actualY = PlayerCharacterMax.move(input);
         Assertions.assertEquals(expectedY,actualY);
     }
+
     @Test
-    void givenPressS_thenPositionYminus1(){
+    void givenPressS_thenYminus1(){
         String input = "s";
         int expectedY = -1;
         int actualY = PlayerCharacterMax.move(input);
         Assertions.assertEquals(expectedY,actualY);
+    }
+
+    @Test
+    void givenPressD_thenX1(){
+        String input = "d";
+        int expectedX = 1;
+        int actualX = PlayerCharacterMax.move(input);
+        Assertions.assertEquals(expectedX,actualX);
     }
 
 }
