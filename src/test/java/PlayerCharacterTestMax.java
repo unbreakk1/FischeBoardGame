@@ -4,26 +4,26 @@ import org.junit.jupiter.api.Test;
 public class PlayerCharacterTestMax {
 
     @Test
-    void givenCharacterPosX0_thenReturns0(){
-        int positionX = 0;
+    void givenx0_thenReturns0(){
+        int x = 0;
         int expected = 0;
-        int actual = PlayerCharacterMax.getX(positionX);
+        int actual = PlayerCharacterMax.getX(x);
         Assertions.assertEquals(expected,actual);
     }
 
     @Test
     void givenCharacterPosY0_thenReturns0(){
-        int positionY = 0;
+        int y = 0;
         int expected = 0;
-        int actual = PlayerCharacterMax.getY(positionY);
+        int actual = PlayerCharacterMax.getY(y);
         Assertions.assertEquals(expected,actual);
     }
 
     @Test
     void givenPressW_thenPositionY1(){
-        int positionY = 0;
+        String input = "W";
         int expected = 1;
-        int actual = PlayerCharacterMax.move(positionY);
+        int actual = PlayerCharacterMax.move(input);
         Assertions.assertEquals(expected,actual);
     }
 }
