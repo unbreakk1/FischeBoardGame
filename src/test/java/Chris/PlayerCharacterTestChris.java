@@ -1,5 +1,6 @@
 package Chris;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PlayerCharacterTestChris
@@ -12,7 +13,7 @@ public class PlayerCharacterTestChris
            int expectedPos = 0;
            int actualPos = PlayerCharacter.getX(playerPosX);
 
-           assert expectedPos == actualPos;
+         Assertions.assertEquals(expectedPos, actualPos);
     }
 
     @Test
@@ -23,7 +24,17 @@ public class PlayerCharacterTestChris
         int expectedPos = 0;
         int actualPos = PlayerCharacter.getY(playerPosY);
 
-        assert expectedPos == actualPos;
+        Assertions.assertEquals(expectedPos, actualPos);
     }
 
+    @Test
+    void moveY_ExpectReturnOne()
+    {
+        int playerPosY = 1;
+
+        int expectedPos = 1;
+        int actualPos = PlayerCharacter.move(playerPosY);
+
+        Assertions.assertEquals(expectedPos, actualPos);
+    }
 }
