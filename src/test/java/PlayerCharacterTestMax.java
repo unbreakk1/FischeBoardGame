@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class PlayerCharacterTestMax {
     @BeforeEach
@@ -25,36 +27,34 @@ public class PlayerCharacterTestMax {
     }
 
     @Test
-    void givenW_thenY1(){
-        String input = "w";
-        int expectedY = 1;
-        int actualY = PlayerCharacterMax.move(input);
-        Assertions.assertEquals(expectedY,actualY);
-    }
-
-    @Test
-    void givenPressS_thenYminus1(){
-        String input = "s";
-        int expectedY = -1;
-        int actualY = PlayerCharacterMax.move(input);
-        Assertions.assertEquals(expectedY,actualY);
-    }
-
-    @Test
-    void givenPressD_thenX1(){
-        String input = "d";
-        int expectedX = 1;
+    void givenIllegalArgumentU_thenReturnX0(){
+        String input = "u";
+        int expectedX = 0;
         int actualX = PlayerCharacterMax.move(input);
         Assertions.assertEquals(expectedX,actualX);
     }
 
-    @Test
-    void givenPressA_thenXminus1(){
-        String input = "a";
-        int expectedX = -1;
-        int actualX = PlayerCharacterMax.move(input);
-        Assertions.assertEquals(expectedX,actualX);
+    @ParameterizedTest
+    @CsvSource({
+            "'d',1",
+            "'a',-1"
+    })
+    void givenD_thenX1(String input, int expectedX){
+        PlayerCharacterMax.move(input);
+        Assertions.assertEquals(expectedX,PlayerCharacterMax.getX());
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'w',1",
+            "'s',-1"
+    })
+    void givenW_thenY1(String input, int expectedY){
+        PlayerCharacterMax.move(input);
+        Assertions.assertEquals(expectedY,PlayerCharacterMax.getY());
+    }
+
+
     @Test
     void givenSequenceAWAW_thenXminus2_Y2() {
         PlayerCharacterMax.move("a"); // x = -1, y = 0
@@ -68,6 +68,7 @@ public class PlayerCharacterTestMax {
         Assertions.assertEquals(expectedX, PlayerCharacterMax.getX());
         Assertions.assertEquals(expectedY, PlayerCharacterMax.getY());
     }
+
     @Test
     void givenSequenceAWAWWWWDDD_thenXminus2_Y2() {
         PlayerCharacterMax.move("a"); // x = -1, y = 0
